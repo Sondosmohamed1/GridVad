@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PaperTitle: Your Research Paper Title Here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a1f3a;
+    --blue: #2e5de0;
+    --blue-light: #4a78f5;
+    --amber: #e07b2e;
+    --amber-light: #f5a04a;
+    --bg: #f4f6fb;
+    --bg-card: #ffffff;
+    --text: #1a1f3a;
+    --text-muted: #5a6282;
+    --border: #dde3f0;
+    --shadow: 0 2px 16px rgba(46,93,224,0.08);
+    --shadow-lg: 0 8px 40px rgba(46,93,224,0.13);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, #eef2fb 0%, #f7f9ff 60%, #eef2fb 100%);
+    padding: 80px 24px 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(46,93,224,0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-emoji {
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(46,93,224,0.18));
+  }
+
+  .hero h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    max-width: 800px;
+    margin: 0 auto 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--blue);
+  }
+
+  .authors {
+    font-size: 1rem;
+    color: var(--blue);
+    font-weight: 500;
+    max-width: 700px;
+    margin: 0 auto 10px;
+    line-height: 1.9;
+  }
+
+  .authors sup {
+    font-size: 0.7em;
+    color: var(--text-muted);
+  }
+
+  .affiliations {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .footnotes {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+
+  .cta-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+  .btn-paper {
+    background: var(--navy);
+    color: #fff;
+  }
+  .btn-code {
+    background: #24292e;
+    color: #fff;
+  }
+  .btn-demo {
+    background: var(--blue);
+    color: #fff;
+  }
+  .btn-data {
+    background: var(--amber);
+    color: #fff;
+  }
+  .btn-video {
+    background: #c0392b;
+    color: #fff;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: 'Crimson Pro', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .divider {
+    width: 44px;
+    height: 3px;
+    background: var(--blue);
+    border-radius: 2px;
+    margin: 0 auto 36px;
+  }
+
+  p {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.12rem;
+    color: #333;
+    text-align: justify;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  /* ── TEASER IMAGE ── */
+  .teaser {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 0 24px 8px;
+  }
+  .teaser-placeholder {
+    width: 100%;
+    height: 320px;
+    background: linear-gradient(135deg, #e8edf8 0%, #d5dff5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  .teaser img { width: 100%; display: block; }
+  .teaser-caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 14px 24px;
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  /* ── METHOD BOX ── */
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+  }
+  @media (max-width: 600px) { .method-grid { grid-template-columns: 1fr; } }
+
+  .method-cell {
+    background: var(--bg-card);
+    padding: 28px;
+  }
+
+  .method-cell-header {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .method-cell-header.blue { color: var(--blue); }
+  .method-cell-header.amber { color: var(--amber); }
+
+  .method-cell h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .method-cell h3 .math {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+  }
+
+  .method-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 3px 3px 3px 0;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .tag-blue { background: #e8eeff; color: var(--blue); }
+  .tag-amber { background: #fff3e8; color: var(--amber); }
+
+  /* ── RESULTS TABLE ── */
+  .results-wrap {
+    overflow-x: auto;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+  }
+
+  thead tr {
+    background: var(--navy);
+    color: #fff;
+  }
+  thead th {
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  tbody tr:nth-child(even) { background: #f7f9ff; }
+  tbody tr:nth-child(odd) { background: #fff; }
+  tbody tr.highlight { background: #eef2ff; }
+  tbody tr.highlight td { font-weight: 600; }
+
+  tbody td {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .best { color: var(--blue); font-weight: 700; }
+
+  /* ── VIDEO EMBED ── */
+  .video-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: #000;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+  }
+  .video-wrap iframe { width: 100%; height: 100%; border: none; }
+
+  /* ── BibTeX ── */
+  .bibtex-box {
+    background: #1a1f3a;
+    border-radius: 14px;
+    padding: 28px;
+    overflow-x: auto;
+    box-shadow: var(--shadow-lg);
+  }
+  .bibtex-box pre {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    color: #c0cfee;
+    line-height: 1.7;
+    white-space: pre-wrap;
+  }
+  .bibtex-box pre .key { color: #79b8ff; }
+  .bibtex-box pre .val { color: #9ecbff; }
+  .bibtex-box pre .field { color: #b392f0; }
+
+  /* ── COPY BUTTON ── */
+  .copy-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  .copy-btn {
+    background: rgba(255,255,255,0.08);
+    color: #8baad4;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 7px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .copy-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: #8baad4;
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 0.85rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+  footer a { color: #79b8ff; text-decoration: none; }
+
+  /* ── DIVIDER LINE ── */
+  hr.section-hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp 0.6s ease both; }
+  .hero > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero > *:nth-child(2) { animation-delay: 0.15s; }
+  .hero > *:nth-child(3) { animation-delay: 0.25s; }
+  .hero > *:nth-child(4) { animation-delay: 0.30s; }
+  .hero > *:nth-child(5) { animation-delay: 0.35s; }
+  .hero > *:nth-child(6) { animation-delay: 0.42s; }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <span class="hero-emoji">🗺️</span>
+  <h1>YourPaper: A Subtitle That Explains<br><em>Your Key Contribution</em></h1>
+
+  <div class="authors">
+    FirstName LastName<sup>1,†</sup>,
+    FirstName LastName<sup>1,†</sup>,
+    FirstName LastName<sup>1,2</sup>,
+    FirstName LastName<sup>3,*</sup>,
+    FirstName LastName<sup>1,‡</sup>
+  </div>
+  <div class="affiliations">
+    <sup>1</sup> Your University &nbsp;·&nbsp;
+    <sup>2</sup> Second Institution &nbsp;·&nbsp;
+    <sup>3</sup> Third Institution
+  </div>
+  <div class="footnotes">
+    <sup>†</sup> Equal Contribution &nbsp;·&nbsp;
+    <sup>*</sup> Corresponding Author &nbsp;·&nbsp;
+    <sup>‡</sup> Principal Investigator
+  </div>
+
+  <div class="cta-group">
+    <a href="#" class="btn btn-paper">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Paper
+    </a>
+    <a href="#" class="btn btn-code">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.268 2.75 1.026A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.026 2.747-1.026.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .269.18.579.688.481C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+      Code
+    </a>
+    <a href="#" class="btn btn-demo">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Demo
+    </a>
+    <a href="#" class="btn btn-data">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      Dataset
+    </a>
+  </div>
+</div>
+
+<!-- ══ TEASER ══ -->
+<div style="max-width:860px;margin:0 auto;padding:40px 24px 0;">
+  <div class="teaser">
+    <div class="teaser-placeholder">[ Insert teaser figure here — replace with &lt;img src="teaser.png"&gt; ]</div>
+    <div class="teaser-caption">
+      <strong>Figure 1.</strong> Overview of our method. Replace this caption with a concise description of what is shown in the teaser figure and what key insight it conveys to the reader.
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABSTRACT ══ -->
+<hr class="section-hr">
+<section id="abstract">
+  <h2>Abstract</h2>
+  <div class="divider"></div>
+
+  <p>
+    Begin your abstract here. This is where you introduce the problem you are addressing and explain why it matters. Be concise and make the scope of the work clear from the very first sentence.
+  </p>
+  <p>
+    In the second paragraph, describe the <strong>key challenge</strong> or limitation of existing approaches that motivates your work. Briefly explain what breaks or falls short in prior art.
+  </p>
+  <p>
+    Finally, introduce your method — <strong>YourMethod</strong> — and summarize its core idea. State the main results and contributions you will demonstrate, giving the reader a clear reason to keep reading.
+  </p>
+</section>
+
+<!-- ══ VIDEO ══ -->
+<hr class="section-hr">
+<section id="video">
+  <div class="section-label">Overview</div>
+  <h2>Video</h2>
+  <div class="divider"></div>
+
+  <div class="video-wrap">
+    <!-- Replace src with your YouTube/Vimeo embed URL -->
+    <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+    [ Embed your paper overview video here ]
+  </div>
+</section>
+
+<!-- ══ METHODOLOGY ══ -->
+<hr class="section-hr">
+<section id="method">
+  <div class="section-label">The Method</div>
+  <h2>Methodology</h2>
+  <div class="divider"></div>
+
+  <!-- Method overview grid — customise labels as needed -->
+  <div class="method-grid">
+    <div class="method-cell">
+      <div class="method-cell-header blue">State Space</div>
+      <h3>Input Representation <span class="math">X<sub>t</sub></span></h3>
+      <p style="font-size:0.93rem;text-align:left;">Describe how your method represents the input at this stage. Use equations if necessary, and explain the intuition briefly.</p>
+      <div>
+        <span class="method-tag tag-blue">Coarse Level</span>
+        <span class="method-tag tag-blue">Mid Level</span>
+        <span class="method-tag tag-blue">Fine Level</span>
+      </div>
+    </div>
+    <div class="method-cell">
+      <div class="method-cell-header amber">Action Space</div>
+      <h3>Operations <span class="math">𝒜</span></h3>
+      <p style="font-size:0.93rem;text-align:left;">Describe the set of operations or decisions your model can perform. Explain why these choices are principled.</p>
+      <div>
+        <span class="method-tag tag-amber">Navigate</span>
+        <span class="method-tag tag-amber">Zoom In</span>
+        <span class="method-tag tag-amber">Summarize</span>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    Provide a prose description of your full pipeline here. Explain how the components above interact, what training signal you use, and any important implementation choices that distinguish your approach.
+  </p>
+</section>
+
+<!-- ══ RESULTS ══ -->
+<hr class="section-hr">
+<section id="results">
+  <div class="section-label">Quantitative Evaluation</div>
+  <h2>Results</h2>
+  <div class="divider"></div>
+
+  <div class="results-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Benchmark A ↑</th>
+          <th>Benchmark B ↑</th>
+          <th>Efficiency ↓</th>
+          <th>Params</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Baseline 1</td>
+          <td>42.3</td>
+          <td>38.1</td>
+          <td>O(n)</td>
+          <td>7B</td>
+        </tr>
+        <tr>
+          <td>Baseline 2</td>
+          <td>45.7</td>
+          <td>41.2</td>
+          <td>O(n²)</td>
+          <td>13B</td>
+        </tr>
+        <tr>
+          <td>Baseline 3</td>
+          <td>48.0</td>
+          <td>43.6</td>
+          <td>O(n log n)</td>
+          <td>7B</td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>Ours (YourMethod)</strong></td>
+          <td class="best">52.4</td>
+          <td class="best">47.9</td>
+          <td class="best">O(log n)</td>
+          <td>7B</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.88rem;color:var(--text-muted);font-family:'DM Sans',sans-serif;text-align:center;margin-top:-8px;">
+    Table 1. Comparison with state-of-the-art methods on standard benchmarks. ↑ = higher is better; ↓ = lower is better. Bold indicates best result.
+  </p>
+</section>
+
+<!-- ══ BibTeX ══ -->
+<hr class="section-hr">
+<section id="bibtex">
+  <div class="section-label">Citation</div>
+  <h2>BibTeX</h2>
+  <div class="divider"></div>
+
+  <div class="bibtex-box">
+    <div class="copy-row">
+      <button class="copy-btn" onclick="copyBib()">Copy</button>
+    </div>
+    <pre id="bib-text"><span class="key">@inproceedings</span>{<span class="val">yourpaper2025</span>,
+  <span class="field">title</span>     = {YourPaper: A Subtitle That Explains Your Key Contribution},
+  <span class="field">author</span>    = {LastName, FirstName and LastName, FirstName and LastName, FirstName},
+  <span class="field">booktitle</span> = {Proceedings of the Conference on Your Field (CONF)},
+  <span class="field">year</span>      = {2025},
+  <span class="field">url</span>       = {https://arxiv.org/abs/XXXX.XXXXX}
+}</pre>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p>This page was built with a template inspired by academic project pages. &nbsp;·&nbsp;
+  <a href="#">Paper</a> &nbsp;·&nbsp; <a href="#">Code</a> &nbsp;·&nbsp; <a href="#">Dataset</a>
+  </p>
+</footer>
+
+<script>
+function copyBib() {
+  const text = document.getElementById('bib-text').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+}
+</script>
+</body>
+</html>
