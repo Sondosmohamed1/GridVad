@@ -369,15 +369,10 @@
         <div class="info-icon">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         </div>
-       <div class="info-text">
-  <div class="info-title">UCSD Ped2 — Qualitative Analysis & Benchmarking</div>
-  <p class="info-desc">
-    GridVAD detects non-pedestrian objects (bicycles, skateboards, vehicles) as anomalies via zero-shot reasoning. 
-    <strong>Visualizing Transparency:</strong> These results showcase both successful detections and 
-    <em>False Negatives</em> (missed anomalies). By comparing our predicted masks against the 
-    <strong>Ground Truth (GT)</strong>, we highlight the model's precision as well as its limitations.
-  </p>
-</div>
+        <div class="info-text">
+          <div class="info-title">UCSD Ped2 — Anomalous test clips</div>
+          <p class="info-desc">GridVAD detects non-pedestrian objects (bicycles, skateboards, vehicles) as anomalies and produces temporally-consistent pixel-level segmentation masks — zero-shot, with no dataset-specific training.</p>
+        </div>
       </div>
     </div>
 
@@ -486,7 +481,7 @@
 
 <script>
 // 1. UPDATED BASE URL (Using GitHub Pages for streaming support)
-const BASE = 'https://sondosmohamed1.github.io/GridVAD/Videos/UCSD_Ped2/';
+const BASE = 'https://sondosmohamed1.github.io/GridVad/Videos/UCSD_Ped2/';
 
 const CLIPS = {
   ucsd: {
