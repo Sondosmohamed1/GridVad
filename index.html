@@ -52,7 +52,7 @@
   .hero h1 {
     font-family: 'Crimson Pro', serif;
     font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 700;
+    font-weight: 600;
     color: var(--navy);
     line-height: 1.2;
     max-width: 800px;
@@ -60,28 +60,32 @@
     letter-spacing: -0.01em;
   }
   .hero h1 em { font-style: italic; color: var(--blue); }
-  .authors {
-    font-size: clamp(0.78rem, 2.2vw, 1rem);
-    color: var(--blue);
-    font-weight: 500;
-    max-width: 860px;
-    margin: 0 auto 10px;
-    line-height: 1.9;
-    text-align: center;
-    white-space: normal;
-    word-break: break-word;
-  }
-  .authors sup {
-    font-size: 0.68em;
-    color: var(--text-muted);
-    vertical-align: super;
-    line-height: 0;
-  }
-  @media (max-width: 600px) {
-    .authors { font-size: 0.82rem; line-height: 2; }
-    .affiliations { font-size: 0.78rem; }
-    .footnotes { font-size: 0.74rem; }
-  }
+  /* ── UPDATED AUTHORS ── */
+/* ── FIXED SUPERSCRIPTS ── */
+/* ── FIXED SUPERSCRIPTS ── */
+.authors { 
+  font-size: 1rem; 
+  color: var(--blue); 
+  font-weight: 500; 
+  max-width: 1000px; 
+  margin: 0 auto 10px; 
+  /* Reduce line-height so the 'super' position stays near the letters */
+  line-height: 1.2; 
+  display: flex;
+  flex-wrap: nowrap; 
+  justify-content: center;
+  white-space: nowrap;
+  gap: 8px; 
+}
+
+.authors sup { 
+  font-size: 0.7em; 
+  color: var(--text-muted); 
+  /* This is the standard way to keep them above the text */
+  vertical-align: super; 
+  /* Forces the height not to affect the flex row alignment */
+  line-height: 0; 
+}
   .affiliations { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 6px; }
   .footnotes { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 32px; }
   .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 8px; position: relative; z-index: 2; }
@@ -420,7 +424,7 @@
   <div class="authors">
     Mohamed Eltahir<sup>1,†</sup>,
     Ahmed O. Ibrahim<sup>2,*</sup>,
-    Obada Abdalbadee Mohammedalhassan Siralkhatim<sup>2,*</sup>,
+    Obada Siralkhatim<sup>2,*</sup>,
     Tabarak Abdallah<sup>2</sup>,
     Sondos Mohamed<sup>3,‡</sup>
   </div>
@@ -546,7 +550,7 @@
       <rect x="0" y="408" width="796" height="100" rx="10" fill="#fdf0eb" stroke="#dde3f0" stroke-width="1"/>
       <rect x="0" y="408" width="5" height="100" rx="3" fill="#993C1D"/>
       <rect x="20" y="422" width="40" height="22" rx="5" fill="#1a1f3a"/>
-      <text x="40" y="433" text-anchor="middle" dominant-baseline="central" fill="#fff" font-family="'DM Mono',monospace" font-size="11" font-weight="600">04a</text>
+      <text x="40" y="433" text-anchor="middle" dominant-baseline="central" fill="#fff" font-family="'DM Mono',monospace" font-size="11" font-weight="600">04</text>
       <rect x="68" y="422" width="92" height="20" rx="10" fill="#FAECE7"/>
       <text x="114" y="432" text-anchor="middle" dominant-baseline="central" fill="#993C1D" font-family="'DM Sans',sans-serif" font-size="10" font-weight="700" letter-spacing="0.06em">GROUNDING</text>
       <text x="20" y="466" fill="#1a1f3a" font-family="'DM Sans',sans-serif" font-size="15" font-weight="600">Grounding DINO</text>
@@ -562,7 +566,7 @@
       <rect x="0" y="536" width="796" height="100" rx="10" fill="#eaf3fd" stroke="#dde3f0" stroke-width="1"/>
       <rect x="0" y="536" width="5" height="100" rx="3" fill="#185FA5"/>
       <rect x="20" y="550" width="40" height="22" rx="5" fill="#1a1f3a"/>
-      <text x="40" y="561" text-anchor="middle" dominant-baseline="central" fill="#fff" font-family="'DM Mono',monospace" font-size="11" font-weight="600">04b</text>
+      <text x="40" y="561" text-anchor="middle" dominant-baseline="central" fill="#fff" font-family="'DM Mono',monospace" font-size="11" font-weight="600">05</text>
       <rect x="68" y="550" width="106" height="20" rx="10" fill="#E6F1FB"/>
       <text x="121" y="560" text-anchor="middle" dominant-baseline="central" fill="#185FA5" font-family="'DM Sans',sans-serif" font-size="10" font-weight="700" letter-spacing="0.06em">PROPAGATION</text>
       <text x="20" y="594" fill="#1a1f3a" font-family="'DM Sans',sans-serif" font-size="15" font-weight="600">SAM2</text>
@@ -622,23 +626,27 @@
 
     <!-- UCSD Ped2 row -->
     <div class="clip-strip">
-      <span class="clip-strip-label" style="color:var(--blue);min-width:96px;">UCSD Ped2</span>
-      <button class="clip-btn" id="btn-ucsd-1" onclick="selectClip('Videos/UCSD_Ped2/Test001_demo.mp4','UCSD · Test 001',this)">Test 001</button>
-      <button class="clip-btn" onclick="selectClip('Videos/UCSD_Ped2/Test002_demo.mp4','UCSD · Test 002',this)">Test 002</button>
-      <button class="clip-btn" onclick="selectClip('Videos/UCSD_Ped2/Test003_demo.mp4','UCSD · Test 003',this)">Test 003</button>
-      <button class="clip-btn" onclick="selectClip('Videos/UCSD_Ped2/Test004_demo.mp4','UCSD · Test 004',this)">Test 004</button>
-      <button class="clip-btn" onclick="selectClip('Videos/UCSD_Ped2/Test005_demo.mp4','UCSD · Test 005',this)">Test 005</button>
-      <button class="clip-btn" onclick="selectClip('Videos/UCSD_Ped2/Test006_demo.mp4','UCSD · Test 006',this)">Test 006</button>
+      <span class="clip-strip-label" style="color:var(--blue);min-width:96px;">CLIP</span>
+      <button class="clip-btn" id="btn-ucsd-1" onclick="selectClip('Videos/UCSD_Ped2/Test001_demo.mp4','UCSD· Test 001',this)">Test 001</button>
+      <button class="clip-btn" onclick="selectClip('Videos/ShanghaiTech/01_0141_demo.mp4','ShanghaiTech · Test 002',this)">Test 002</button>
+      <button class="clip-btn" onclick="selectClip('Videos/UCSD_Ped2/Test002_demo.mp4','UCSD · Test 003',this)">Test 003</button>
+      <button class="clip-btn" onclick="selectClip('Videos/ShanghaiTech/10_0074_demo.mp4','ShanghaiTech · Test 004',this)">Test 004</button>
+      <button class="clip-btn" onclick="selectClip('Videos/UCSD_Ped2/Test003_demo.mp4','UCSD · Test 005',this)">Test 005</button>
+      <button class="clip-btn" onclick="selectClip('Videos/ShanghaiTech/06_0145_demo.mp4','ShanghaiTech · Test 008',this)">Test 006</button>
+      <button class="clip-btn" onclick="selectClip('Videos/UCSD_Ped2/Test004_demo.mp4','UCSD · Test 007',this)">Test 007</button>
+     <button class="clip-btn" onclick="selectClip('Videos/ShanghaiTech/02_0164_demo.mp4','ShanghaiTech · Test 006',this)">Test 008</button>
+       <button class="clip-btn" onclick="selectClip('Videos/UCSD_Ped2/Test005_demo.mp4','UCSD · Test 007',this)">Test 009</button>
+       <button class="clip-btn" onclick="selectClip('Videos/UCSD_Ped2/Test006_demo.mp4','UCSD · Test 008',this)">Test 010</button>
     </div>
 
     <!-- ShanghaiTech row -->
-    <div class="clip-strip" style="border-top: 1px dashed var(--border); padding-top:14px;">
+   <!-- <div class="clip-strip" style="border-top: 1px dashed var(--border); padding-top:14px;">
       <span class="clip-strip-label" style="color:var(--amber);min-width:96px;">ShanghaiTech</span>
       <!-- Uncomment and update filenames once you have the videos:
       <button class="clip-btn" onclick="selectClip('Videos/ShanghaiTech/SH001_demo.mp4','SH · Scene 001',this)">Scene 001</button>
-      -->
+ 
       <span style="font-family:'DM Mono',monospace;font-size:0.76rem;color:#a0aacb;padding:6px 2px;">Coming soon — clips will appear here</span>
-    </div>
+    </div>-->
 
     <!-- Info bar -->
     <div class="video-info-bar">
@@ -649,8 +657,8 @@
         <div class="info-title">Qualitative Analysis &amp; Benchmarking</div>
         <p class="info-desc">
           GridVAD detects non-pedestrian objects and unusual behaviours via zero-shot reasoning.
-          <strong>Visualizing Transparency:</strong> These results showcase both successful detections and
-          <em>False Negatives</em> (missed anomalies). By comparing predicted masks against the
+          <strong>Visualizing Transparency:</strong> These results showcase both successful detections alongside
+          <em>False Negatives</em> (missed anomalies) and <em>False Positives</em> (normal events incorrectly flagged as anomalous). By comparing predicted masks against the
           <strong>Ground Truth (GT)</strong>, we highlight the model's precision as well as its limitations.
         </p>
       </div>
@@ -710,8 +718,8 @@
     </div>
   </div>
 
-  <!-- Table 2 -->
-  <div class="ac-tbl-block">
+ <!-- Table 2 -->
+  <!-- <div class="ac-tbl-block">
     <p class="ac-caption">
       <strong>Table 2.</strong> Object-level comparison on <strong>ShanghaiTech Campus</strong>.
       Baseline numbers are transcribed from the TAO paper.
@@ -740,7 +748,7 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </div>-->
 </section>
 
 <!-- ══ BibTeX ══ -->
@@ -753,9 +761,9 @@
     <div class="copy-row">
       <button class="copy-btn" onclick="copyBib()">Copy</button>
     </div>
-    <pre id="bib-text"><span class="key">@inproceedings</span>{<span class="val">yourpaper2025</span>,
+    <pre id="bib-text"><span class="key">@inproceedings</span>{<span class="val">paper</span>,
   <span class="field">title</span>     = {GridVAD: Open-Set Video Anomaly Detection via Spatial Reasoning over Stratified Frame Grids},
-  <span class="field">author</span>    = {Mohamed Eltahir, Ahmed O. Ibrahim, Obada Abdalbadee Mohammedalhassan Siralkhatim, Tabarak Abdallah, Sondos Mohamed},
+  <span class="field">author</span>    = {Mohamed Eltahir, Ahmed O. Ibrahim, Obada Siralkhatim, Tabarak Abdallah, Sondos Mohamed},
   <span class="field">booktitle</span> = {arXiv},
   <span class="field">year</span>      = {2026},
   <span class="field">url</span>       = {https://arxiv.org/abs/XXXX.XXXXX}
