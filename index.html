@@ -62,20 +62,29 @@
   .hero h1 em { font-style: italic; color: var(--blue); }
   /* ── UPDATED AUTHORS ── */
 /* ── FIXED SUPERSCRIPTS ── */
-.authors sup { font-size: 0.7em; color: var(--text-muted); }
-
+/* ── FIXED SUPERSCRIPTS ── */
 .authors { 
   font-size: 1rem; 
   color: var(--blue); 
   font-weight: 500; 
   max-width: 1000px; 
   margin: 0 auto 10px; 
-  line-height: 1.2;       /* Reduced from 1.9 to keep authors tight on one line */
+  /* Reduce line-height so the 'super' position stays near the letters */
+  line-height: 1.2; 
   display: flex;
   flex-wrap: nowrap; 
   justify-content: center;
   white-space: nowrap;
   gap: 8px; 
+}
+
+.authors sup { 
+  font-size: 0.7em; 
+  color: var(--text-muted); 
+  /* This is the standard way to keep them above the text */
+  vertical-align: super; 
+  /* Forces the height not to affect the flex row alignment */
+  line-height: 0; 
 }
   .affiliations { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 6px; }
   .footnotes { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 32px; }
