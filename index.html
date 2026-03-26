@@ -61,28 +61,28 @@
   }
   .hero h1 em { font-style: italic; color: var(--blue); }
   /* ── UPDATED AUTHORS ── */
+/* ── FIXED SUPERSCRIPTS ── */
+.authors sup { 
+  font-size: 0.65em;      /* Slightly smaller for a cleaner look */
+  color: var(--text-muted); 
+  vertical-align: baseline; /* Resets the default high leap */
+  position: relative; 
+  top: -0.5em;            /* Manually positions it exactly where you want it */
+  margin-left: 1px;       /* Adds a tiny gap so it doesn't touch the letters */
+}
+
 .authors { 
   font-size: 1rem; 
   color: var(--blue); 
   font-weight: 500; 
-  /* Increase max-width to give the names enough room to sit horizontally */
   max-width: 1000px; 
   margin: 0 auto 10px; 
-  line-height: 1.9; 
-  
-  /* These properties force the single-line layout */
+  line-height: 1.2;       /* Reduced from 1.9 to keep authors tight on one line */
   display: flex;
   flex-wrap: nowrap; 
   justify-content: center;
   white-space: nowrap;
-  gap: 5px; /* Adjust this to control the spacing between names */
-}
-
-.authors sup { 
-  font-size: 0.7em; 
-  color: var(--text-muted); 
-  /* Ensures superscripts don't add extra height to the flex line */
-  line-height: 0; 
+  gap: 8px; 
 }
   .affiliations { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 6px; }
   .footnotes { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 32px; }
